@@ -1,0 +1,23 @@
+.sub-page { min-height:100vh;padding-top:64px;background:#0a0a0f;font-family:"DM Sans",sans-serif;color:#e8e8f0;padding-bottom:60px; }
+.sub-hero { padding:60px 40px 40px;text-align:center; }
+.sub-hero h1 { font-family:"Bebas Neue",sans-serif;font-size:3.5rem;letter-spacing:3px;margin-bottom:12px; }
+.sub-hero p  { color:#7a7a9a; }
+.alert { display:inline-block;margin-top:16px;background:rgba(245,200,66,.1);border:1px solid rgba(245,200,66,.3);color:#f5c842;padding:10px 24px;border-radius:10px;font-size:.9rem; }
+.plans { display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:960px;margin:0 auto;padding:0 40px; }
+.plan { background:#13131a;border:1px solid #2a2a3a;border-radius:20px;padding:32px;position:relative; }
+.plan.popular { border-color:#7c5cfc;box-shadow:0 0 40px rgba(124,92,252,.15); }
+.plan-badge { font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#7a7a9a;margin-bottom:12px; }
+.popular-badge { color:#7c5cfc; }
+.pro-badge { color:#f5c842; }
+.plan h2 { font-family:"Bebas Neue",sans-serif;font-size:2.2rem;letter-spacing:2px;margin-bottom:8px; }
+.price { font-size:2rem;font-weight:700;margin-bottom:20px; }
+.price span { font-size:.9rem;font-weight:400;color:#7a7a9a; }
+ul { list-style:none;margin-bottom:28px; }
+li { padding:7px 0;font-size:.88rem;color:#a0a0b0;border-bottom:1px solid #1e1e2e; }
+button { width:100%;padding:12px;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;border:none; }
+button:disabled { background:#1c1c26;color:#555;cursor:not-allowed; }
+.upgrade-btn { background:linear-gradient(135deg,#7c5cfc,#5a3fd4);color:#fff; }
+.pro-btn { background:linear-gradient(135deg,#f5c842,#e6b030);color:#000; }
+.back-btn { display:block;margin:32px auto 0;background:transparent;border:1px solid #2a2a3a;color:#7a7a9a;padding:10px 28px;border-radius:10px;cursor:pointer;font-size:.88rem; }
+.back-btn:hover { border-color:#7c5cfc;color:#7c5cfc; }
+@media(max-width:768px) { .plans,.sub-hero { padding-left:16px;padding-right:16px; } }

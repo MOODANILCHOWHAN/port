@@ -1,0 +1,36 @@
+<div class="pf-o1">
+  <section class="hero">
+    <div class="orb1"></div><div class="orb2"></div>
+    <div class="hero-body">
+      <div class="badge">Available for hire</div>
+      <h1 class="name">{{ data.name }}</h1>
+      <div class="role">{{ data.role }}</div>
+      <p class="bio" *ngIf="data.bio">{{ data.bio }}</p>
+      <div class="links">
+        <span *ngIf="data.location">📍 {{ data.location }}</span>
+        <a *ngIf="data.email" href="mailto:{{data.email}}">✉ {{ data.email }}</a>
+        <a *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn ↗</a>
+        <a *ngIf="data.github"   href="https://{{data.github}}"   target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+  <div class="content">
+    <div class="bar-top"><button (click)="router.navigate(['/build/O1'])">← Edit</button></div>
+    <section *ngIf="data.techSkills?.length"><h2 class="sec-title purple">Technical Skills</h2><div class="pills">  <span class="pill" *ngFor="let s of data.techSkills">{{s}}</span></div></section>
+    <section *ngIf="data.softSkills?.length"><h2 class="sec-title teal">Soft Skills</h2><div class="pills"><span class="pill soft" *ngFor="let s of data.softSkills">{{s}}</span></div></section>
+    <section *ngIf="data.experience?.length">
+      <h2 class="sec-title white">Experience</h2>
+      <div class="exp" *ngFor="let e of data.experience"><div class="exp-top"><div><strong>{{e.title}}</strong><span class="co">{{e.company}}</span></div><span class="dur">{{e.duration}}</span></div><p>{{e.desc}}</p></div>
+    </section>
+    <section *ngIf="data.education?.length">
+      <h2 class="sec-title white">Education</h2>
+      <div class="edu" *ngFor="let e of data.education"><div><strong>{{e.degree}}</strong><span class="co">{{e.school}}</span></div><div class="right"><span>{{e.year}}</span><span class="grade">{{e.grade}}</span></div></div>
+    </section>
+    <section *ngIf="data.projects?.length">
+      <h2 class="sec-title white">Projects</h2>
+      <div class="proj" *ngFor="let p of data.projects"><div class="proj-top"><strong>{{p.name}}</strong><a *ngIf="p.link" href="https://{{p.link}}" target="_blank">↗ Live</a></div><p>{{p.desc}}</p><div class="pills"><span class="pill" *ngFor="let t of splitTech(p.tech)">{{t}}</span></div></div>
+    </section>
+    <section *ngIf="data.certs"><h2 class="sec-title white">Certifications</h2><div class="cert-item" *ngFor="let c of splitLines(data.certs)">🏆 {{c}}</div></section>
+    <section *ngIf="data.langs"><h2 class="sec-title white">Languages</h2><p class="muted">{{data.langs}}</p></section>
+  </div>
+</div>

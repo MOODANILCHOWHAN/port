@@ -1,0 +1,137 @@
+<div class="form-page">
+
+  <div class="form-header">
+    <button class="back-btn" (click)="router.navigate(['/dashboard'])">← Back to Designs</button>
+    <h1>Build Your Portfolio</h1>
+    <p *ngIf="design">
+      Design: <strong>{{ design.name }}</strong>
+      <span class="tier-chip" [attr.data-tier]="design.tier">{{ design.tier | uppercase }}</span>
+    </p>
+  </div>
+
+  <form [formGroup]="form" class="form-body">
+
+    <!-- BASIC INFO -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">👤</span> Basic Information</h3>
+      <div class="row-2">
+        <div class="field"><label>Full Name *</label><input formControlName="name" placeholder="Jane Doe" /></div>
+        <div class="field"><label>Job Title *</label><input formControlName="role" placeholder="Full Stack Developer" /></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label>Email</label><input formControlName="email" type="email" /></div>
+        <div class="field"><label>Phone</label><input formControlName="phone" /></div>
+      </div>
+      <div class="row-2">
+        <div class="field"><label>Location</label><input formControlName="location" /></div>
+        <div class="field"><label>LinkedIn</label><input formControlName="linkedin" /></div>
+      </div>
+      <div class="field"><label>Bio / Summary</label><textarea formControlName="bio" rows="3"></textarea></div>
+    </div>
+
+    <!-- TECH SKILLS -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">⚡</span> Technical Skills</h3>
+      <div class="pills">
+        <span class="pill tech" *ngFor="let s of techSkills; let i = index">
+          {{ s }} <button type="button" (click)="removeSkill('tech', i)">×</button>
+        </span>
+      </div>
+      <div class="skill-add">
+        <input #techIn placeholder="Type a skill and press Enter" (keydown.enter)="addSkill('tech', techIn); $event.preventDefault()" />
+        <button type="button" (click)="addSkill('tech', techIn)">Add</button>
+      </div>
+    </div>
+
+    <!-- SOFT SKILLS -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">🌟</span> Soft Skills</h3>
+      <div class="pills">
+        <span class="pill soft" *ngFor="let s of softSkills; let i = index">
+          {{ s }} <button type="button" (click)="removeSkill('soft', i)">×</button>
+        </span>
+      </div>
+      <div class="skill-add">
+        <input #softIn placeholder="e.g. Leadership, Agile…" (keydown.enter)="addSkill('soft', softIn); $event.preventDefault()" />
+        <button type="button" (click)="addSkill('soft', softIn)">Add</button>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">🎓</span> Education</h3>
+      <div formArrayName="education">
+        <div class="dynamic-item" *ngFor="let c of educationFA.controls; let i = index" [formGroupName]="i">
+          <button type="button" class="rm-btn" (click)="educationFA.removeAt(i)">×</button>
+          <div class="row-2">
+            <div class="field"><label>Degree</label><input formControlName="degree" /></div>
+            <div class="field"><label>Institution</label><input formControlName="school" /></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label>Year</label><input formControlName="year" /></div>
+            <div class="field"><label>Grade / CGPA</label><input formControlName="grade" /></div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="add-btn" (click)="addEdu()">+ Add Education</button>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">💼</span> Work Experience</h3>
+      <div formArrayName="experience">
+        <div class="dynamic-item" *ngFor="let c of experienceFA.controls; let i = index" [formGroupName]="i">
+          <button type="button" class="rm-btn" (click)="experienceFA.removeAt(i)">×</button>
+          <div class="row-2">
+            <div class="field"><label>Job Title</label><input formControlName="title" /></div>
+            <div class="field"><label>Company</label><input formControlName="company" /></div>
+          </div>
+          <div class="field"><label>Duration</label><input formControlName="duration" /></div>
+          <div class="field"><label>Description</label><textarea formControlName="desc" rows="2"></textarea></div>
+        </div>
+      </div>
+      <button type="button" class="add-btn" (click)="addExp()">+ Add Experience</button>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">🚀</span> Projects</h3>
+      <div formArrayName="projects">
+        <div class="dynamic-item" *ngFor="let c of projectsFA.controls; let i = index" [formGroupName]="i">
+          <button type="button" class="rm-btn" (click)="projectsFA.removeAt(i)">×</button>
+          <div class="row-2">
+            <div class="field"><label>Name</label><input formControlName="name" /></div>
+            <div class="field"><label>Tech Stack</label><input formControlName="tech" /></div>
+          </div>
+          <div class="field"><label>Description</label><textarea formControlName="desc" rows="2"></textarea></div>
+          <div class="field"><label>Live URL</label><input formControlName="link" /></div>
+        </div>
+      </div>
+      <button type="button" class="add-btn" (click)="addProj()">+ Add Project</button>
+    </div>
+
+    <!-- OTHER -->
+    <div class="card">
+      <h3 class="card-title"><span class="icon">✨</span> Other Details</h3>
+      <div class="row-2">
+        <div class="field"><label>GitHub</label><input formControlName="github" /></div>
+        <div class="field"><label>Website</label><input formControlName="website" /></div>
+      </div>
+      <div class="field"><label>Certifications (one per line)</label><textarea formControlName="certs" rows="3"></textarea></div>
+      <div class="field"><label>Languages</label><input formControlName="langs" /></div>
+    </div>
+
+  </form>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar">
+    <span class="bar-name" *ngIf="design">{{ design.name }}</span>
+    <span class="bar-tier" *ngIf="design" [attr.data-tier]="design.tier">{{ design.tier | uppercase }}</span>
+    <div class="bar-spacer"></div>
+    <button type="button" class="btn-cancel" (click)="router.navigate(['/dashboard'])">Cancel</button>
+    <button type="button" class="btn-build" [disabled]="saving()" (click)="onSubmit()">
+      {{ saving() ? "Building…" : "Build Portfolio →" }}
+    </button>
+  </div>
+
+</div>

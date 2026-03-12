@@ -1,0 +1,33 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 64px; background: rgba(10,10,15,.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #2a2a3a;
+  display: flex; align-items: center;
+  justify-content: space-between; padding: 0 32px;
+}
+.logo {
+  font-family: "Bebas Neue", sans-serif; font-size: 1.6rem;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg,#7c5cfc,#00e5c3);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-link { color: #7a7a9a; font-size: .87rem; transition: color .2s; }
+.nav-link:hover { color: #7c5cfc; }
+.avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg,#7c5cfc,#00e5c3);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: .85rem; color: #fff;
+}
+.logout-btn {
+  background: #1c1c26; border: 1px solid #2a2a3a;
+  color: #e8e8f0; padding: 8px 16px; border-radius: 8px;
+  font-size: .85rem; cursor: pointer; transition: all .2s;
+}
+.logout-btn:hover { border-color: #7c5cfc; color: #7c5cfc; }
+@media(max-width:600px) {
+  .navbar { padding: 0 16px; }
+  .nav-link { display: none; }
+}

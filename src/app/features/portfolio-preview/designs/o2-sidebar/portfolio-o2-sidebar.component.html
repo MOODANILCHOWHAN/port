@@ -1,0 +1,36 @@
+<div class="pf-o2">
+  <aside class="sidebar">
+    <div class="ava">{{ data.name[0].toUpperCase() }}</div>
+    <h2>{{ data.name }}</h2>
+    <p class="role">{{ data.role }}</p>
+    <div class="info-item" *ngIf="data.location">📍 {{data.location}}</div>
+    <div class="info-item" *ngIf="data.email">✉ {{data.email}}</div>
+    <a class="info-item link" *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn ↗</a>
+    <a class="info-item link" *ngIf="data.github"   href="https://{{data.github}}"   target="_blank">GitHub ↗</a>
+    <div class="skills-sec" *ngIf="data.techSkills?.length">
+      <div class="skills-title">Technical Skills</div>
+      <div class="skill-bar" *ngFor="let s of data.techSkills.slice(0,8); let i = index">
+        <span>{{s}}</span>
+        <div class="bar"><div class="fill" [style.width]="(95 - i*5) + '%'"></div></div>
+      </div>
+    </div>
+    <div class="skills-sec" *ngIf="data.softSkills?.length">
+      <div class="skills-title">Soft Skills</div>
+      <div class="soft-pill" *ngFor="let s of data.softSkills">{{s}}</div>
+    </div>
+    <button (click)="router.navigate(['/build/O2'])">← Edit</button>
+  </aside>
+  <main class="main">
+    <section *ngIf="data.bio"><h2>About</h2><p>{{data.bio}}</p></section>
+    <section *ngIf="data.experience?.length"><h2>Experience</h2>
+      <div class="exp" *ngFor="let e of data.experience"><div class="exp-top"><strong>{{e.title}}</strong><span>{{e.duration}}</span></div><span class="co">{{e.company}}</span><p>{{e.desc}}</p></div>
+    </section>
+    <section *ngIf="data.education?.length"><h2>Education</h2>
+      <div class="edu" *ngFor="let e of data.education"><div><strong>{{e.degree}}</strong><span class="co">{{e.school}}</span></div><span>{{e.year}} · {{e.grade}}</span></div>
+    </section>
+    <section *ngIf="data.projects?.length"><h2>Projects</h2>
+      <div class="proj" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p><div class="techs"><span *ngFor="let t of splitTech(p.tech)">{{t}}</span></div></div>
+    </section>
+    <section *ngIf="data.certs"><h2>Certifications</h2><p class="cert" *ngFor="let c of splitLines(data.certs)">🏆 {{c}}</p></section>
+  </main>
+</div>

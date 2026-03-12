@@ -1,0 +1,19 @@
+{
+  "routes": [
+    "/dashboard",
+    "/login",
+    "/preview/O1",
+    "/preview/O2",
+    "/preview/O3",
+    "/preview/P1",
+    "/preview/P2",
+    "/preview/P3",
+    "/preview/P4",
+    "/preview/P5",
+    "/preview/R1",
+    "/preview/R2",
+    "/preview/R3",
+    "/register",
+    "/subscription"
+  ]
+}

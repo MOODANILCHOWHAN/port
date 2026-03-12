@@ -1,0 +1,6 @@
+<div class="toast-wrap">
+  <div class="toast" *ngFor="let t of svc.items(); trackBy: track">
+    <span class="icon">{{ t.icon }}</span>
+    <span>{{ t.msg }}</span>
+  </div>
+</div>

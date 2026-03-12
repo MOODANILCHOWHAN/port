@@ -1,0 +1,29 @@
+<div class="pf-o3">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <h1>{{ data.name }}</h1>
+      <div class="role">{{ data.role }}</div>
+      <div class="links">
+        <span *ngIf="data.location">{{data.location}}</span>
+        <a *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn</a>
+        <a *ngIf="data.github" href="https://{{data.github}}" target="_blank">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-right"><button (click)="router.navigate(['/build/O3'])">← Edit</button></div>
+  </div>
+  <div class="content">
+    <div class="left-col">
+      <div class="block" *ngIf="data.bio"><h3>About</h3><p>{{data.bio}}</p></div>
+      <div class="block" *ngIf="data.techSkills?.length"><h3>Skills</h3><div class="pills"><span *ngFor="let s of data.techSkills">{{s}}</span></div></div>
+      <div class="block" *ngIf="data.softSkills?.length"><h3>Soft Skills</h3><div class="pills soft"><span *ngFor="let s of data.softSkills">{{s}}</span></div></div>
+    </div>
+    <div class="right-col">
+      <div class="block" *ngIf="data.experience?.length"><h3>Experience</h3>
+        <div class="item" *ngFor="let e of data.experience"><strong>{{e.title}}</strong> &#64; {{e.company}}<span class="yr">{{e.duration}}</span><p>{{e.desc}}</p></div>
+      </div>
+      <div class="block" *ngIf="data.projects?.length"><h3>Projects</h3>
+        <div class="item" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p></div>
+      </div>
+    </div>
+  </div>
+</div>

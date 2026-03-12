@@ -1,0 +1,9 @@
+<nav class="navbar" *ngIf="auth.isLoggedIn()">
+  <a routerLink="/dashboard" class="logo">PortfolioForge</a>
+  <div class="nav-right">
+    <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+    <a routerLink="/subscription" class="nav-link">Plans</a>
+    <div class="avatar">{{ auth.initial() }}</div>
+    <button class="logout-btn" (click)="auth.logout()">Logout</button>
+  </div>
+</nav>

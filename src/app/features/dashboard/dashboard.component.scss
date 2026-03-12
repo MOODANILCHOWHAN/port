@@ -1,0 +1,14 @@
+.dashboard { padding-top: 64px; background: #0a0a0f; min-height: 100vh; font-family: "DM Sans", sans-serif; }
+.hero { padding: 80px 40px 50px; text-align: center; background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,92,252,.12), transparent 70%); }
+.hero h1 { font-family: "Bebas Neue", sans-serif; font-size: clamp(3rem,7vw,5.5rem); letter-spacing: 4px; background: linear-gradient(135deg,#e8e8f0,#7c5cfc 50%,#00e5c3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+.hero p { color: #7a7a9a; font-size: 1rem; }
+.section { padding: 50px 40px; max-width: 1400px; margin: 0 auto; }
+.sec-hdr { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; flex-wrap: wrap; }
+.sec-hdr h2 { font-family: "Bebas Neue", sans-serif; font-size: 2rem; letter-spacing: 2px; color: #e8e8f0; margin: 0; }
+.hint { margin-left: auto; color: #7a7a9a; font-size: .85rem; }
+.badge { padding: 5px 12px; border-radius: 20px; font-size: .7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-family: "JetBrains Mono", monospace; }
+.badge.open { background: rgba(0,229,195,.12); color: #00e5c3; border: 1px solid rgba(0,229,195,.3); }
+.badge.plus { background: rgba(124,92,252,.12); color: #7c5cfc; border: 1px solid rgba(124,92,252,.3); }
+.badge.pro  { background: rgba(245,200,66,.12); color: #f5c842; border: 1px solid rgba(245,200,66,.3); }
+.divider { border-top: 1px solid #2a2a3a; margin: 0 40px; }
+@media(max-width:768px) { .section { padding: 36px 16px; } .hero { padding: 88px 16px 40px; } .divider { margin: 0 16px; } }

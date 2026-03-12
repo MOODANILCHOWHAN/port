@@ -1,0 +1,30 @@
+<div class="pf-p2">
+  <div class="terminal-win">
+    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">portfolio.json — bash</span></div>
+    <div class="term-body">
+      <button class="edit-link" (click)="router.navigate(['/build/P2'])">← Edit Details</button>
+      <pre class="code"><span class="cm">// PortfolioForge — Generated Profile</span>
+<span class="bk">&#123;&#123;</span>
+  <span class="key">"name"</span>: <span class="val">"{{ data.name }}"</span>,
+  <span class="key">"role"</span>: <span class="val">"{{ data.role }}"</span>,
+  <span class="key">"email"</span>: <span class="val">"{{ data.email }}"</span>,
+  <span class="key">"location"</span>: <span class="val">"{{ data.location }}"</span>,
+  <span class="key">"bio"</span>: <span class="val">"{{ data.bio }}"</span>,
+  <span class="key">"tech_skills"</span>: [
+    <span *ngFor="let s of data.techSkills; let last=last">    <span class="val">"{{ s }}"</span>{{ last?'':',' }}</span>
+  ],
+  <span class="key">"soft_skills"</span>: [
+    <span *ngFor="let s of data.softSkills; let last=last">    <span class="val">"{{ s }}"</span>{{ last?'':',' }}</span>
+  ],
+  <span class="key">"experience"</span>: [
+    <span *ngFor="let e of data.experience; let last=last">    {{ '{' }} <span class="key">"title"</span>: <span class="val">"{{ e.title }}"</span>, <span class="key">"company"</span>: <span class="val">"{{ e.company }}"</span>, <span class="key">"duration"</span>: <span class="val">"{{ e.duration }}"</span> {{ '}' }}{{ last?'':',' }}</span>
+  ],
+  <span class="key">"projects"</span>: [
+    <span *ngFor="let p of data.projects; let last=last">    {{ '{' }} <span class="key">"name"</span>: <span class="val">"{{ p.name }}"</span>, <span class="key">"tech"</span>: <span class="val">"{{ p.tech }}"</span> {{ '}' }}{{ last?'':',' }}</span>
+  ],
+  <span class="key">"github"</span>: <span class="val">"{{ data.github }}"</span>,
+  <span class="key">"website"</span>: <span class="val">"{{ data.website }}"</span>
+<span class="bk">&#125;</span></pre>
+    </div>
+  </div>
+</div>

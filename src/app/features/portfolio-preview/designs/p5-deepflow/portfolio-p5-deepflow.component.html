@@ -1,0 +1,28 @@
+<div class="pf-p5">
+  <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+  <div class="hero">
+    <div class="dot-badge">● AVAILABLE</div>
+    <h1>{{ data.name }}</h1>
+    <p class="role">{{ data.role }}</p>
+    <p class="bio" *ngIf="data.bio">{{ data.bio }}</p>
+    <div class="links">
+      <a *ngIf="data.email" href="mailto:{{data.email}}">{{data.email}}</a>
+      <span *ngIf="data.location">{{data.location}}</span>
+      <a *ngIf="data.github" href="https://{{data.github}}" target="_blank">GitHub ↗</a>
+    </div>
+    <button (click)="router.navigate(['/build/P5'])">← Edit</button>
+  </div>
+  <div class="cards">
+    <div class="card" *ngIf="data.techSkills?.length"><h3>Tech Skills</h3><div class="pills"><span *ngFor="let s of data.techSkills">{{s}}</span></div></div>
+    <div class="card" *ngIf="data.softSkills?.length"><h3>Soft Skills</h3><div class="pills soft"><span *ngFor="let s of data.softSkills">{{s}}</span></div></div>
+    <div class="card wide" *ngIf="data.experience?.length"><h3>Experience</h3>
+      <div class="exp" *ngFor="let e of data.experience"><div class="exp-hd"><strong>{{e.title}}</strong><span>{{e.company}} · {{e.duration}}</span></div><p>{{e.desc}}</p></div>
+    </div>
+    <div class="card" *ngIf="data.education?.length"><h3>Education</h3>
+      <div *ngFor="let e of data.education"><strong>{{e.degree}}</strong><p>{{e.school}} · {{e.year}}</p></div>
+    </div>
+    <div class="card" *ngIf="data.projects?.length"><h3>Projects</h3>
+      <div class="proj" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p></div>
+    </div>
+  </div>
+</div>

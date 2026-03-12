@@ -1,0 +1,17 @@
+.toast-wrap {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.toast {
+  background: #13131a; border: 1px solid #2a2a3a;
+  border-radius: 12px; padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+  color: #e8e8f0; font-size: .9rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  animation: slideIn .3s ease;
+}
+.icon { font-size: 1.1rem; }
+@keyframes slideIn {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}

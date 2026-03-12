@@ -1,0 +1,25 @@
+<div class="page">
+  <div class="card">
+    <div class="logo">PortfolioForge</div>
+    <p class="sub">Build portfolios that get you hired.</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="you@example.com" />
+        <span class="err" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']">Valid email required</span>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input formControlName="password" type="password" placeholder="••••••••" />
+      </div>
+      <div class="api-err" *ngIf="apiError()">{{ apiError() }}</div>
+      <button type="submit" [disabled]="loading()">
+        {{ loading() ? "Signing in…" : "Sign In →" }}
+      </button>
+    </form>
+
+    <p class="foot">No account? <a routerLink="/register">Create one free</a></p>
+    <p class="demo">Demo: demo&#64;portfolioforge.com / demo123</p>
+  </div>
+</div>

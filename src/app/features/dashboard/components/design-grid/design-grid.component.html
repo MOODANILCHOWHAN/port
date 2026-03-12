@@ -1,0 +1,8 @@
+<div class="grid">
+  <app-design-card
+    *ngFor="let d of designs; trackBy: track"
+    [design]="d"
+    [userPlan]="userPlan"
+    (selected)="onSelect($event)">
+  </app-design-card>
+</div>

@@ -1,0 +1,28 @@
+<div class="pf-p3">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="hero glass">
+    <h1>{{ data.name }}</h1>
+    <p class="role">{{ data.role }}</p>
+    <p class="bio" *ngIf="data.bio">{{ data.bio }}</p>
+    <div class="links">
+      <span *ngIf="data.location">{{data.location}}</span>
+      <a *ngIf="data.email" href="mailto:{{data.email}}">{{data.email}}</a>
+      <a *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn ↗</a>
+      <a *ngIf="data.github"   href="https://{{data.github}}"   target="_blank">GitHub ↗</a>
+    </div>
+    <button (click)="router.navigate(['/build/P3'])">← Edit</button>
+  </div>
+  <div class="grid">
+    <div class="glass card" *ngIf="data.techSkills?.length"><h3>Technical Skills</h3><div class="pills"><span *ngFor="let s of data.techSkills">{{s}}</span></div></div>
+    <div class="glass card" *ngIf="data.softSkills?.length"><h3>Soft Skills</h3><div class="pills soft"><span *ngFor="let s of data.softSkills">{{s}}</span></div></div>
+    <div class="glass card full" *ngIf="data.experience?.length"><h3>Experience</h3>
+      <div class="exp" *ngFor="let e of data.experience"><div class="exp-hd"><strong>{{e.title}}</strong><span>{{e.duration}}</span></div><em>{{e.company}}</em><p>{{e.desc}}</p></div>
+    </div>
+    <div class="glass card" *ngIf="data.education?.length"><h3>Education</h3>
+      <div class="edu" *ngFor="let e of data.education"><strong>{{e.degree}}</strong><em>{{e.school}}</em><span>{{e.year}} · {{e.grade}}</span></div>
+    </div>
+    <div class="glass card" *ngIf="data.projects?.length"><h3>Projects</h3>
+      <div class="proj" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p><div class="pills"><span *ngFor="let t of splitTech(p.tech)">{{t}}</span></div></div>
+    </div>
+  </div>
+</div>

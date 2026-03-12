@@ -1,0 +1,35 @@
+<div class="sub-page">
+  <div class="sub-hero">
+    <h1>Upgrade Your Plan</h1>
+    <p>Unlock premium and pro designs</p>
+    <div class="alert" *ngIf="required">You need a <strong>{{ required | uppercase }}</strong> plan to use this design.</div>
+  </div>
+  <div class="plans">
+
+    <div class="plan open">
+      <div class="plan-badge">CURRENT FREE</div>
+      <h2>Open</h2>
+      <div class="price">₹0 <span>/ forever</span></div>
+      <ul><li>✓ 3 portfolio designs</li><li>✓ Public shareable link</li><li>✓ Demo data prefill</li></ul>
+      <button disabled>Current Plan</button>
+    </div>
+
+    <div class="plan plus popular">
+      <div class="plan-badge popular-badge">POPULAR</div>
+      <h2>Plus</h2>
+      <div class="price">₹299 <span>/ month</span></div>
+      <ul><li>✓ Everything in Open</li><li>✓ 5 premium designs</li><li>✓ Priority support</li><li>✓ Custom domain</li></ul>
+      <button class="upgrade-btn" (click)="router.navigate(['/dashboard'])">Upgrade to Plus →</button>
+    </div>
+
+    <div class="plan pro">
+      <div class="plan-badge pro-badge">PRO ✦</div>
+      <h2>Pro</h2>
+      <div class="price">₹599 <span>/ month</span></div>
+      <ul><li>✓ Everything in Plus</li><li>✓ 3 animated designs</li><li>✓ PDF export</li><li>✓ Analytics dashboard</li></ul>
+      <button class="upgrade-btn pro-btn" (click)="router.navigate(['/dashboard'])">Upgrade to Pro →</button>
+    </div>
+
+  </div>
+  <button class="back-btn" (click)="router.navigate(['/dashboard'])">← Back to Dashboard</button>
+</div>

@@ -1,0 +1,30 @@
+<div class="pf-p1">
+  <header class="masthead"><div class="mast-top"><span class="mast-date">Portfolio {{ currentYear }}</span><h1>{{ data.name }}</h1><div class="mast-role">{{ data.role }}</div></div></header>
+  <div class="ticker" *ngIf="data.techSkills?.length"><div class="ticker-inner"><span *ngFor="let s of data.techSkills">{{ s }} ◆ </span></div></div>
+  <div class="content">
+    <div class="left-col">
+      <button class="edit-btn" (click)="router.navigate(['/build/P1'])">← Edit</button>
+      <div class="contact-box">
+        <div *ngIf="data.email">✉ {{data.email}}</div>
+        <div *ngIf="data.phone">📱 {{data.phone}}</div>
+        <div *ngIf="data.location">📍 {{data.location}}</div>
+        <a *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn ↗</a>
+      </div>
+      <div class="sidebar-sec" *ngIf="data.softSkills?.length"><h4>Soft Skills</h4><div class="ss-item" *ngFor="let s of data.softSkills">— {{s}}</div></div>
+      <div class="sidebar-sec" *ngIf="data.certs"><h4>Certifications</h4><div class="ss-item" *ngFor="let c of splitLines(data.certs)">{{c}}</div></div>
+      <div class="sidebar-sec" *ngIf="data.langs"><h4>Languages</h4><p>{{data.langs}}</p></div>
+    </div>
+    <div class="right-col">
+      <div class="article-sec" *ngIf="data.bio"><h2>Profile</h2><p>{{data.bio}}</p></div>
+      <div class="article-sec" *ngIf="data.experience?.length"><h2>Career</h2>
+        <div class="article-item" *ngFor="let e of data.experience"><div class="ai-head"><strong>{{e.title}}</strong><em>{{e.company}}</em></div><span class="yr">{{e.duration}}</span><p>{{e.desc}}</p></div>
+      </div>
+      <div class="article-sec" *ngIf="data.education?.length"><h2>Education</h2>
+        <div class="article-item" *ngFor="let e of data.education"><strong>{{e.degree}}</strong><em>{{e.school}} · {{e.year}}</em></div>
+      </div>
+      <div class="article-sec" *ngIf="data.projects?.length"><h2>Projects</h2>
+        <div class="article-item" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p><em>{{p.tech}}</em></div>
+      </div>
+    </div>
+  </div>
+</div>

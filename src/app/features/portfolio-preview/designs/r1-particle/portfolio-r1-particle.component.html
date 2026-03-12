@@ -1,0 +1,25 @@
+<div class="pf-r1">
+  <div class="particles"><div class="particle" *ngFor="let p of particles" [style]="getStyle(p)"></div></div>
+  <div class="hero">
+    <h1 class="glow-name">{{ data.name }}</h1>
+    <p class="role">{{ data.role }}</p>
+    <p class="bio" *ngIf="data.bio">{{ data.bio }}</p>
+    <div class="links">
+      <a *ngIf="data.email" href="mailto:{{data.email}}">{{data.email}}</a>
+      <a *ngIf="data.linkedin" href="https://{{data.linkedin}}" target="_blank">LinkedIn ↗</a>
+    </div>
+    <button (click)="router.navigate(['/build/R1'])">← Edit</button>
+  </div>
+  <div class="content fade-up">
+    <section *ngIf="data.techSkills?.length" class="sec"><h2>Technical Skills</h2><div class="pills"><span *ngFor="let s of data.techSkills">{{s}}</span></div></section>
+    <section *ngIf="data.experience?.length" class="sec"><h2>Experience</h2>
+      <div class="exp" *ngFor="let e of data.experience"><strong>{{e.title}}</strong> <span class="bk">&#125;</span> <em>{{e.company}}</em><span>{{e.duration}}</span><p>{{e.desc}}</p></div>
+    </section>
+    <section *ngIf="data.projects?.length" class="sec"><h2>Projects</h2>
+      <div class="proj" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p><div class="pills"><span *ngFor="let t of splitTech(p.tech)">{{t}}</span></div></div>
+    </section>
+    <section *ngIf="data.education?.length" class="sec"><h2>Education</h2>
+      <div *ngFor="let e of data.education"><strong>{{e.degree}}</strong> · {{e.school}} · {{e.year}}</div>
+    </section>
+  </div>
+</div>

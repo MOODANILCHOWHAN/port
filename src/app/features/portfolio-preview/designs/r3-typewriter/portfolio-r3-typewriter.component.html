@@ -1,0 +1,30 @@
+<div class="pf-r3">
+  <div class="scanline"></div>
+  <div class="terminal-wrap">
+    <div class="term-hdr"><span class="dot"></span><span class="dot"></span><span class="dot"></span> terminal — arjun.sh</div>
+    <div class="term-body">
+      <div class="prompt">$ <span class="cmd">cat portfolio.json</span></div>
+      <div class="output">
+        <div class="typewriter-name">{{ data.name }}</div>
+        <div class="line cm">// {{ data.role }}</div>
+        <div class="line"><span class="key">email:</span> <span class="val">{{ data.email }}</span></div>
+        <div class="line"><span class="key">location:</span> <span class="val">{{ data.location }}</span></div>
+        <div class="line"><span class="key">bio:</span> <span class="val">{{ data.bio }}</span></div>
+        <div class="line"><span class="key">skills:</span> <span class="val">{{ data.techSkills.join(', ') }}</span></div>
+        <div class="sep">---</div>
+        <div *ngFor="let e of data.experience" class="exp-block">
+          <div class="line"><span class="key">{{ e.title }}</span> <span class="bk">&#125;</span> <span class="val">{{ e.company }}</span> <span class="cm">// {{ e.duration }}</span></div>
+          <div class="line desc">  {{ e.desc }}</div>
+        </div>
+        <div class="sep">---</div>
+        <div *ngFor="let p of data.projects" class="exp-block">
+          <div class="line"><span class="key">project:</span> <span class="val">{{ p.name }}</span></div>
+          <div class="line desc">  {{ p.desc }}</div>
+          <div class="line"><span class="key">  tech:</span> <span class="cm">{{ p.tech }}</span></div>
+        </div>
+      </div>
+      <div class="prompt">$ <span class="cursor">█</span></div>
+      <div class="edit-wrap"><button (click)="router.navigate(['/build/R3'])">← Edit Details</button></div>
+    </div>
+  </div>
+</div>

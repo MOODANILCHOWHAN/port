@@ -1,0 +1,23 @@
+<div class="pf-p4">
+  <div class="header"><div class="h-left"><div class="name">{{ data.name }}</div><div class="role">{{ data.role }}</div></div>
+  <div class="h-right"><div *ngIf="data.email">{{data.email}}</div><div *ngIf="data.location">{{data.location}}</div><button (click)="router.navigate(['/build/P4'])">← EDIT</button></div></div>
+  <div class="skills-bar" *ngIf="data.techSkills?.length"><span *ngFor="let s of data.techSkills">{{s}}</span></div>
+  <div class="body">
+    <div class="left">
+      <div class="section" *ngIf="data.softSkills?.length"><h2>SOFT SKILLS</h2><div class="tag" *ngFor="let s of data.softSkills">{{s}}</div></div>
+      <div class="section" *ngIf="data.education?.length"><h2>EDUCATION</h2>
+        <div *ngFor="let e of data.education"><strong>{{e.degree}}</strong><p>{{e.school}}</p><small>{{e.year}} · {{e.grade}}</small></div>
+      </div>
+      <div class="section" *ngIf="data.certs"><h2>CERTIFICATIONS</h2><div *ngFor="let c of splitLines(data.certs)"><p>{{c}}</p></div></div>
+    </div>
+    <div class="right">
+      <div class="section" *ngIf="data.bio"><h2>PROFILE</h2><p>{{data.bio}}</p></div>
+      <div class="section" *ngIf="data.experience?.length"><h2>EXPERIENCE</h2>
+        <div class="exp-item" *ngFor="let e of data.experience"><div class="stripe"></div><div><strong>{{e.title}}</strong><em>{{e.company}} · {{e.duration}}</em><p>{{e.desc}}</p></div></div>
+      </div>
+      <div class="section" *ngIf="data.projects?.length"><h2>PROJECTS</h2>
+        <div class="exp-item" *ngFor="let p of data.projects"><div class="stripe teal"></div><div><strong>{{p.name}}</strong><em>{{p.tech}}</em><p>{{p.desc}}</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>

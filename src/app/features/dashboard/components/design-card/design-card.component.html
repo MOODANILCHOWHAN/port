@@ -1,0 +1,25 @@
+<div class="card" [attr.data-tier]="design.tier" (click)="onUse()">
+  <div class="preview" [class]="'prev-' + design.id.toLowerCase()">
+    <div class="prev-title">{{ design.name }}</div>
+    <div class="prev-tags">
+      <span *ngFor="let t of design.tags">{{ t }}</span>
+    </div>
+    <div class="animated-badge" *ngIf="design.animated">✦ Animated</div>
+    <div class="lock-overlay" *ngIf="!hasAccess">
+      <span>🔒</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <h3>{{ design.name }}</h3>
+    <p>{{ design.description }}</p>
+    <div class="tags">
+      <span *ngFor="let t of design.tags">{{ t }}</span>
+    </div>
+  </div>
+
+  <button class="cta" [class.locked]="!hasAccess" type="button">
+    <ng-container *ngIf="hasAccess; else lockedTpl">Use this design →</ng-container>
+    <ng-template #lockedTpl>🔒 Upgrade to {{ design.tier | titlecase }}</ng-template>
+  </button>
+</div>

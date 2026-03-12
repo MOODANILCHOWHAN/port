@@ -1,0 +1,40 @@
+<div class="dashboard">
+  <div class="hero">
+    <h1>Choose Your Portfolio</h1>
+    <p>Select a design → fill details → launch your personal brand.</p>
+  </div>
+
+  <!-- OPEN -->
+  <section class="section">
+    <div class="sec-hdr">
+      <span class="badge open">FREE</span>
+      <h2>Open Designs</h2>
+      <span class="hint">3 professional templates — free forever</span>
+    </div>
+    <app-design-grid [designs]="openDesigns" [userPlan]="plan" (designSelected)="onDesignSelect($event)" />
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PLUS -->
+  <section class="section">
+    <div class="sec-hdr">
+      <span class="badge plus">PLUS</span>
+      <h2>Plus Designs</h2>
+      <span class="hint">₹299/mo — premium layouts</span>
+    </div>
+    <app-design-grid [designs]="plusDesigns" [userPlan]="plan" (designSelected)="onDesignSelect($event)" />
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRO -->
+  <section class="section">
+    <div class="sec-hdr">
+      <span class="badge pro">PRO ✦</span>
+      <h2>Pro Designs</h2>
+      <span class="hint">₹599/mo — animated cinematic portfolios</span>
+    </div>
+    <app-design-grid [designs]="proDesigns" [userPlan]="plan" (designSelected)="onDesignSelect($event)" />
+  </section>
+</div>

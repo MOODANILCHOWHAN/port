@@ -1,0 +1,23 @@
+
+.pf-o3 { background:#fff;min-height:100vh;font-family:"DM Sans",sans-serif;color:#0a0a0f; }
+.hero-grid { display:grid;grid-template-columns:1fr 1fr;min-height:240px; }
+.hero-left { background:#0a0a0f;padding:60px 40px;display:flex;flex-direction:column;justify-content:center; }
+.hero-left h1 { font-family:"Bebas Neue",sans-serif;font-size:clamp(3rem,6vw,5rem);letter-spacing:4px;color:#fff;margin-bottom:10px; }
+.hero-left .role { color:#7c5cfc;font-size:1rem;letter-spacing:1px;margin-bottom:14px; }
+.hero-left .links { display:flex;gap:12px;flex-wrap:wrap; }
+.hero-left .links a,.hero-left .links span { color:#00e5c3;font-size:.82rem;text-decoration:none; }
+.hero-right { background:#7c5cfc;padding:40px;display:flex;align-items:flex-start;justify-content:flex-end; }
+.hero-right button { background:#fff;border:none;color:#7c5cfc;padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer; }
+.content { display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1200px;margin:0 auto;padding:48px 40px; }
+.left-col,.right-col { padding:0 20px; }
+.block { margin-bottom:40px; }
+.block h3 { font-family:"Bebas Neue",sans-serif;font-size:1.5rem;letter-spacing:2px;color:#0a0a0f;margin-bottom:14px;border-bottom:3px solid #0a0a0f;padding-bottom:6px; }
+.block p { color:#555;line-height:1.7; }
+.pills { display:flex;flex-wrap:wrap;gap:6px; }
+.pills span { padding:5px 14px;background:#0a0a0f;color:#fff;font-size:.82rem;font-weight:600;border-radius:4px; }
+.pills.soft span { background:#7c5cfc; }
+.item { padding:14px 0;border-bottom:1px solid #e8e8f0; }
+.item strong { font-size:.95rem; }
+.item .yr { font-size:.8rem;color:#7c5cfc;display:block;margin-top:3px; }
+.item p { color:#555;font-size:.88rem;margin-top:6px;line-height:1.65; }
+@media(max-width:768px) { .hero-grid,.content { grid-template-columns:1fr; } .left-col,.right-col { padding:0; } .content { padding:24px 16px; } }

@@ -1,0 +1,25 @@
+<div class="pf-r2">
+  <div class="blob"></div>
+  <aside class="sidebar">
+    <div class="ava">{{ data.name[0].toUpperCase() }}</div>
+    <h2>{{ data.name }}</h2>
+    <p>{{ data.role }}</p>
+    <button (click)="router.navigate(['/build/R2'])">← Edit</button>
+    <div class="s-sec" *ngIf="data.techSkills?.length"><h4>Tech Skills</h4>
+      <div class="bar-row" *ngFor="let s of data.techSkills.slice(0,8); let i=index"><span>{{s}}</span><div class="bar"><div [style.width]="(95-i*5)+'%'"></div></div></div>
+    </div>
+    <div class="s-sec" *ngIf="data.softSkills?.length"><h4>Soft Skills</h4><span class="pill" *ngFor="let s of data.softSkills">{{s}}</span></div>
+  </aside>
+  <main class="main">
+    <section *ngIf="data.bio"><h2>About</h2><p>{{data.bio}}</p></section>
+    <section *ngIf="data.experience?.length"><h2>Experience</h2>
+      <div class="exp" *ngFor="let e of data.experience"><div class="exp-hd"><strong>{{e.title}}</strong><span>{{e.duration}}</span></div><em>{{e.company}}</em><p>{{e.desc}}</p></div>
+    </section>
+    <section *ngIf="data.projects?.length"><h2>Projects</h2>
+      <div class="proj" *ngFor="let p of data.projects"><strong>{{p.name}}</strong><p>{{p.desc}}</p></div>
+    </section>
+    <section *ngIf="data.education?.length"><h2>Education</h2>
+      <div *ngFor="let e of data.education"><strong>{{e.degree}}</strong> · {{e.school}} · {{e.year}}</div>
+    </section>
+  </main>
+</div>
