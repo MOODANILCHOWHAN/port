@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://api.portfolioforge.app/api",
+  apiUrl: "https://portfoliobe-l0zz.onrender.com",
 };
