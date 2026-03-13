@@ -19,7 +19,7 @@
   </div>
 
   <button class="cta" [class.locked]="!hasAccess" type="button">
-    <ng-container *ngIf="hasAccess; else lockedTpl">Use this design →</ng-container>
+    <ng-container *ngIf="!hasAccess; else lockedTpl">Use this design →</ng-container>
     <ng-template #lockedTpl>🔒 Upgrade to {{ design.tier | titlecase }}</ng-template>
   </button>
 </div>
