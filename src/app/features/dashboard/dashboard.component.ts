@@ -26,10 +26,10 @@ export class DashboardComponent {
     const tierRank: Record<UserPlan, number> = { open: 0, plus: 1, pro: 2 };
     const design = [...OPEN_DESIGNS, ...PLUS_DESIGNS, ...PRO_DESIGNS].find((d) => d.id === designId)!;
 
-    if (tierRank[this.plan] < tierRank[design.tier]) {
-      this.router.navigate(['/subscription'], { queryParams: { required: design.tier } });
-      return;
-    }
+    // if (tierRank[this.plan] < tierRank[design.tier]) {
+    //   this.router.navigate(['/subscription'], { queryParams: { required: design.tier } });
+    //   return;
+    // }
     this.portfolioSvc.selectDesign(designId);
   }
 }
