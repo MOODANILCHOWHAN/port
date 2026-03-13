@@ -22,8 +22,12 @@ export class RegisterComponent {
   submit() {
     if (this.form.invalid) { this.form.markAllAsTouched(); return; }
     this.loading.set(true);
+    console.log(this.form.value,"form data");
     this.auth.register(this.form.value as any).subscribe({
-      error: (err) => { this.apiError.set(err.error?.message ?? 'Registration failed.'); this.loading.set(false); }
+      error: (err) => {
+        console.log(err)
+         this.apiError.set(err.error?.message ?? 'Registration failed.'); this.loading.set(false); 
+        }
     });
   }
 }

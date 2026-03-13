@@ -54,6 +54,7 @@ export class AuthService {
   }
 
   register(payload: RegisterPayload): Observable<AuthResponse> {
+    console.log(`${this.api}/auth/register`)
     return this.http.post<AuthResponse>(`${this.api}/auth/register`, payload).pipe(
       tap((r) => { this.persist(r.token, r.user); this.router.navigate(['/dashboard']); })
     );
